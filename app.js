@@ -11,10 +11,17 @@ function saveTask(e) {
   let title = document.getElementById("title").value;
   // ahora necesitamos obtener el valor de la descripción, o la descripción que se va a ingresar por eso se usa el .value
   let description = document.getElementById("description").value;
+  //  ahora necesitamos obtener el valor de la fecha
+  let date = document.getElementById("date").value;
+  //  ahora necesitamos obtener el valor de la hora
+  let time = document.getElementById("time").value;
+  console.log(time);
   // Obtener un objeto o tarea
   let task = {
     title,
-    description
+    description,
+    date,
+    time
   };
   // Ahora se almacenan los datos en local storage del navegador
   // Si en el localStogare existe un valor llamado TASKS y es igual a null se empiezan a crear tareas
@@ -62,14 +69,18 @@ function getTasks() {
     // Lo que se hace es obtener el titulo y la descripcion de una tarea individual
     let title = tasks[i].title;
     let description = tasks[i].description;
+    let date = tasks[i].date;
+    let time = tasks[i].time;
     // Y ahora voy a mostrar todo por la interfaz
     // Y el botón ejecutará la función delete task
     tasksView.innerHTML += `<div class="card mb-3  cardtareas">
         <div class="card-body">
-          <p class= "titulotarea">${title} </p>
-          <p class= "descripciontarea"> ${description}
+        <p class= "titulotarea"> ${title} </p>
+        <p class= "fecha"> <b> Fecha: </b> ${date} </p>
+        <p class= "hora"> <b> Hora: </b> ${time}  </p>
+          <p class= "descripciontarea"> <b>Descripción: </b> ${description}
 
-          <a href="#" onclick="deleteTask('${title}')" class="btn btn-sm btn-block botoneliminar">Eliminar</a>
+          <a href="#" onclick="deleteTask('${title}')" class="btn btn-sm btn-block mt-3 botoneliminar">Eliminar</a>
           </p>
         </div>
       </div>`;

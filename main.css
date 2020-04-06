@@ -17,10 +17,14 @@
 
 .card {
   box-shadow: 0px 10px 10px rgb(212, 212, 212);
+  border: none;
 }
 
 .titulotarea {
   font-weight: bold;
+  font-size: larger;
+  text-transform: uppercase;
+  color: rgb(0, 194, 0);
 }
 
 .cardtareas {
